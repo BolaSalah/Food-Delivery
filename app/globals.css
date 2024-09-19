@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,22 +8,16 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* font of logo */
+.protest-guerrilla-regular {
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.navBarLinActive{
+  color: #bfc3c4;
 }
