@@ -19,7 +19,11 @@ const Menu = (props: propsType) => {
       <div className='flex justify-between items-center gap-7 mt-8 overflow-x-scroll lg:overflow-hidden'>
         {menu_list.map((e, index) => (
           <div
-            onClick={() => props.setCategory(e.menu_name)}
+            onClick={() =>
+              props.category === e.menu_name
+                ? props.setCategory('All')
+                : props.setCategory(e.menu_name)
+            }
             key={index}
             className='flex flex-col items-center '
           >
