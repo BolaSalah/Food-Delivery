@@ -15,21 +15,24 @@ const Navbar = () => {
         </p>
       </Link>
       <div className='navbar-menu md:block hidden text-[#49557e]'>
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center gap-4'>
           <Link
             href={'/'}
             className={pathname === '/' ? 'navBarLinActive' : ''}
           >
             Home
           </Link>
-          <Link href={'menu'} className='mx-4'>
-            menu
-          </Link>
           <Link
             href={'contact'}
             className={pathname === '/contact' ? 'navBarLinActive' : ''}
           >
             contact us
+          </Link>
+          <Link
+            href={'about'}
+            className={pathname === '/about' ? 'navBarLinActive' : ''}
+          >
+            about
           </Link>
         </div>
       </div>
@@ -39,14 +42,14 @@ const Navbar = () => {
             <Image
               src={assets.search_icon}
               alt='search_icon'
-              className='sm:w-full w-6'
+              className='sm:w-6 w-4'
             />
           </Link>
           <Link href={'cart'} className='mx-3 lg:mx-8 relative'>
             <Image
               src={assets.basket_icon}
               alt='bag_icon'
-              className='sm:w-full w-6'
+              className='sm:w-6 w-4'
             />
             <div className='w-2 h-2 rounded-full absolute -top-2 -right-2 bg-stone-700'></div>
           </Link>
