@@ -7,14 +7,19 @@ const FoodList = (props: { category: string }) => {
     // <div className="my-20 px-5">FoodList {props.category}</div>
     <>
       <div className='Food-list'>
-              <div>
-                  <p className=' mb-8 font-bold text-2xl'>Top dishes near you</p>
+        <div>
+          <div className='mb-8 font-bold text-2xl sm:block flex justify-center'>
+            <h1>Top dishes near you</h1>
+          </div>
           {props.category === 'All' ? (
-            <div className='flex flex-wrap '>
+            <div className='flex flex-wrap justify-center'>
               {food_list.map((e, index) => (
-                <div className='w-1/4 px-3 mb-10'>
+                <div
+                  className='md:w-1/4 sm:w-1/3 w-[200px] px-3 mb-10'
+                  key={index}
+                >
                   <div className='rounded-xl overflow-hidden border'>
-                    <Image src={e.image} alt='' />
+                    <Image src={e.image} alt='' className='w-full' />
                     <div className='px-4'>
                       <p className='mt-4 font-bold'>{e.name}</p>
                       <p className='my-2'>{e.description}</p>
