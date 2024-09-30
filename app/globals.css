@@ -7,9 +7,6 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-.navBarLinActive {
-  color: #bfc3c4;
-}
 
 @layer components {
   .yellow {
@@ -18,7 +15,36 @@ body {
 
   /* navbar start */
   /* navbar for large screen */
-  
+  .navbar {
+    @apply mt-4 flex justify-between items-center flex-wrap;
+  }
+  .navbar-icon {
+    @apply font-[protest-guerrilla-regular] sm:text-[30px];
+  }
+  .navbar-menu {
+    @apply md:block hidden text-[#49557e];
+  }
+  .navbar-menu-items {
+    @apply flex justify-center items-center gap-4;
+  }
+  .navBarLinActive {
+    @apply text-[#bfc3c4];
+  }
+  .navbar-right-items {
+    @apply flex justify-center items-center;
+  }
+  .navbar-right-img {
+    @apply sm:w-6 w-4;
+  }
+  .navbar-right-cart {
+    @apply mx-3 lg:mx-8 relative;
+  }
+  .navbar-right-img-dot {
+    @apply w-2 h-2 rounded-full absolute -top-2 -right-2 bg-stone-700;
+  }
+  .navbar-right-register {
+    @apply border border-red-900 sm:px-6 px-2 sm:py-2 py-0.5 rounded-full hover:bg-slate-500 hover:text-white transition duration-200;
+  }
   /* navbar for mobile screen */
   .mobile-nav-link {
     @apply text-white font-semibold cursor-pointer relative 
@@ -26,7 +52,6 @@ body {
     after:block after:bg-yellow-300 after:scale-x-0 after:hover:scale-x-100 after:origin-center
     after:transition after:duration-300;
   }
-  /* Navbar-small-screen */
   .mobile-nav {
     @apply flex justify-center md:hidden px-2 py-8 fixed bottom-0 z-20 w-[90%];
   }

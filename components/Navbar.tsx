@@ -9,14 +9,13 @@ const Navbar = () => {
   const pathname = usePathname();
   return (
     <>
-      <div className='navbar mt-4 flex justify-between items-center flex-wrap'>
+      {/* navbar for large screen */}
+      <div className='navbar'>
         <Link href={'/'} className='navbar-icon'>
-          <p className='protest-guerrilla-regular sm:text-[30px]'>
-            Food Delivery
-          </p>
+          <p className='navbar-icon'>Food Delivery</p>
         </Link>
-        <div className='navbar-menu md:block hidden text-[#49557e]'>
-          <div className='flex justify-center items-center gap-4'>
+        <div className='navbar-menu'>
+          <div className='navbar-menu-items'>
             <Link
               href={'/'}
               className={pathname === '/' ? 'navBarLinActive' : ''}
@@ -38,26 +37,23 @@ const Navbar = () => {
           </div>
         </div>
         <div className='navbar-right'>
-          <div className='flex justify-center items-center'>
-            <Link href={'search'} className=''>
+          <div className='navbar-right-items'>
+            <Link href={'search'}>
               <Image
                 src={assets.search_icon}
                 alt='search_icon'
-                className='sm:w-6 w-4'
+                className='navbar-right-img'
               />
             </Link>
-            <Link href={'cart'} className='mx-3 lg:mx-8 relative'>
+            <Link href={'cart'} className='navbar-right-cart'>
               <Image
                 src={assets.basket_icon}
                 alt='bag_icon'
-                className='sm:w-6 w-4'
+                className='navbar-right-img'
               />
-              <div className='w-2 h-2 rounded-full absolute -top-2 -right-2 bg-stone-700'></div>
+              <div className='navbar-right-img-dot'></div>
             </Link>
-            <Link
-              href={'login'}
-              className=' border border-red-900 sm:px-6 px-2 sm:py-2 py-0.5 rounded-full hover:bg-slate-500 hover:text-white transition duration-200'
-            >
+            <Link href={'login'} className='navbar-right-register'>
               sign in
             </Link>
           </div>
