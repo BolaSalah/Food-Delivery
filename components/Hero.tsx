@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <div className='header sm:mt-8 mt-3 relative text-white xl:w-[1250px] w-full'>
+    <div className='header sm:mt-8 mt-3 relative text-white'>
       <Image src={assets.header_img} alt='header_img' className='w-full' />
       <div className='absolute bottom-[10%] left-[5%] lg:w-1/2'>
         <div className='sm:mb-6 mb-2 xl:text-6xl lg:text-3xl sm:text-2xl text-[10px] font-bold'>

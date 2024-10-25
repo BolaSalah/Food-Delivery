@@ -59,7 +59,7 @@ const contact = () => {
   };
 
   return (
-    <div className='contact'>
+      <div className='contact'>
       <div className={`contact-container-hero`}>
         <Image
           src={assets.contact_q}
@@ -90,7 +90,7 @@ const contact = () => {
         </div>
 
         {/* center => form */}
-        <div className='contact-container-form'>
+        <div className='contact-container-form my-1 rounded-md'>
           <form className='contact-form'>
             <h1 className='contact-form-title'>
               Get <span className='contact-form-title-in'>in</span> touch
@@ -166,7 +166,7 @@ const contact = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

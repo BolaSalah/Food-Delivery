@@ -16,11 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        <div className="lg:px-20 md:px-15 sm:px-10 px-4">
-        <Navbar />
-        {children}
+        <div className="lg:flex flex-col items-center">
+          <div className="xl:w-[1250px] w-full">
+            <div className="lg:px-20 md:px-15 sm:px-10 px-4 lg:flex flex-col items-center">
+              <Navbar/>
+              {children}
+            </div>
+              <Footer />
+          </div>
         </div>
-        <Footer />
       </body>
     </html>
   );

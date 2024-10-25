@@ -9,7 +9,7 @@ type propsType = {
 
 const Menu = (props: propsType) => {
   return (
-    <div className='menu mt-10'>
+    <div className='menu mt-10' id='menu'>
       <div className='text-4xl font-medium mb-4'>Explore our menu</div>
       <div className='md:w-2/3'>
         Choose from a diverse menu featuring a delectable array of dishes. our

@@ -5,7 +5,7 @@ import { food_list } from './../assets/assets';
 const FoodList = (props: { category: string }) => {
   return (
     <>
-      <div className='Food-list xl:w-[1250px] w-full'>
+      <div className='Food-list'>
         <div>
           <div className='mb-8 font-bold text-2xl sm:block flex justify-center'>
             <h1>Top dishes near you</h1>

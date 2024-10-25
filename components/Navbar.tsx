@@ -8,9 +8,9 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <div className='flex justify-center'>
+    <>
       {/* navbar for large screen */}
-      <div className='navbar xl:w-[1250px] w-full'>
+      <div className='navbar w-full'>
         <Link href={'/'} className='navbar-icon'>
           <p className='navbar-icon'>Food Delivery</p>
         </Link>
@@ -79,7 +79,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
