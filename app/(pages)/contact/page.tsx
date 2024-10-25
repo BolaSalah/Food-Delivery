@@ -59,7 +59,7 @@ const contact = () => {
   };
 
   return (
-      <div className='contact'>
+      <div className='contact w-full'>
       <div className={`contact-container-hero`}>
         <Image
           src={assets.contact_q}
