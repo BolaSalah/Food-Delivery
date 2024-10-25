@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <div className='header sm:mt-8 mt-3 relative text-white'>
+    <div className='header sm:mt-8 mt-3 relative text-white xl:w-[1250px] w-full'>
       <Image src={assets.header_img} alt='header_img' className='w-full' />
       <div className='absolute bottom-[10%] left-[5%] lg:w-1/2'>
         <div className='sm:mb-6 mb-2 xl:text-6xl lg:text-3xl sm:text-2xl text-[10px] font-bold'>
@@ -18,8 +18,8 @@ const Header = () => {
         </div>
         <div>
           <Link
-            href=''
-            className=' border border-red-900 sm:px-6 px-3 sm:py-2 py-1 rounded-full hover:bg-slate-500 hover:text-white transition duration-200'
+            href='#menu'
+            className='border border-red-900 sm:px-6 px-3 sm:py-2 py-1 rounded-full hover:bg-slate-500 hover:text-white transition duration-200'
           >
             View Menu
           </Link>

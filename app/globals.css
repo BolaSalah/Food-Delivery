@@ -57,7 +57,7 @@ html {
     after:transition after:duration-300;
   }
   .mobile-nav {
-    @apply flex justify-center md:hidden px-2 py-8 fixed bottom-0 z-20 w-[90%];
+    @apply flex justify-center md:hidden px-2 fixed bottom-0 z-20 w-[90%];
   }
   .mobile-nav-items {
     @apply flex p-1 pb-2 w-[74%] bg-[#141c27] rounded-lg;

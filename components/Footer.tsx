@@ -16,9 +16,9 @@ const Footer = () => {
     const emailAddress = 'bolasalah1999@gmail.com';
 
   return (
-    <div className='footer bg-[#252424] text-[#d1cccc]'>
-      <div className='lg:px-20 md:px-15 sm:px-10 px-4 pt-12 pb-4'>
-        <div className='flex flex-wrap justify-between'>
+    <div className='footer  text-[#d1cccc] flex justify-center'>
+      <div className='lg:px-20 md:px-15 sm:px-10 px-4 pt-12 pb-4 xl:w-[1250px] w-full bg-[#252424]'>
+        <div className='flex flex-wrap justify-between md:text-start text-center'>
           <div className='md:w-1/2 '>
             <p className='protest-guerrilla-regular sm:text-[30px]'>
               Food Delivery
@@ -30,7 +30,7 @@ const Footer = () => {
               earum sadas
             </p>
           </div>
-          <div className='md:w-1/3 flex flex-col'>
+          <div className='md:w-1/3 flex flex-col w-full'>
             <h1 className='font-bold text-xl mt-3'>COMPANY</h1>
             <Link href={"/"} className='mt-4 hover:text-[#bfc3c4]'>Home</Link>
             <Link href={"/contact"} className='hover:text-[#bfc3c4]'>Contact us</Link>
