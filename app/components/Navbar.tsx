@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../services/firebase';
 import { logout } from "../services/auth";
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
 
- const [nameSecurity, setNameSecurity] = useState<string | null>(null);
+  const [nameSecurity, setNameSecurity] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -20,32 +22,23 @@ const Navbar = () => {
         console.log( user );
         console.log( user.displayName );
       } else {
-        setNameSecurity('no user');
+        setNameSecurity('');
       }
     } );
     console.log( nameSecurity );
-  //    const handleSignOut = async () => {
-  //   try {
-  //     localStorage.clear();
-  //     await logout();
-  //     navigate("/login")
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // }
-
-  //  <button
-  //                         onClick={() => {
-  //                           handleSignOut();
-  //                         }}
-  //                         className=" hover:cursor-pointer hover:text-[#C7511F] hover:underline"
-  //                       >
-  //                         Sign Out
-  //                       </button>
     // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []); // Dependency array should be here
-
+  
+  const handleSignOut = async () => {
+ try {
+   localStorage.clear();
+   await logout();
+         router.push('/login');
+ } catch (err) {
+   console.log(err.message);
+ }
+}
   const pathname = usePathname();
   return (
     <>
@@ -87,10 +80,70 @@ const Navbar = () => {
               />
               <div className='navbar-right-img-dot'></div>
             </Link>
-            <Link href={'signin'} className='navbar-right-register'>
-              sign in
-            </Link>
-            <p>{nameSecurity}</p>
+            {/* {nameSecurity ? (
+                 <button
+                           onClick={() => {
+                             handleSignOut();
+                           }}
+                           className="navbar-right-register"
+                         >
+                           logout
+                         </button>
+            ) : (
+              <Link href={'signin'} className='navbar-right-register'>
+                sign in
+              </Link>
+            )} */}
+
+            {/* start */}
+             <div className={`px-2 mt-4 h-8 w-[150px] overflow-hidden border border-[#131921] hover:border-white hover:overflow-visible`}>
+               <div className={`z-10 relative top-0 duration-1000 `}>
+                 {nameSecurity ? (
+                    <>
+                     <Link href={"/login"}>
+                       <div className="text-xs xl:text-sm">
+                       Hello <span>{nameSecurity}</span>
+                       </div>
+                     </Link>
+                     <div className="bg-white border border-[#cbc3c3]  rounded-lg  w-[230px] mt-4 -ml-12 text-black flex flex-col justify-center items-center">
+                       <div
+                         className="rounded-lg my-4 mb-3 text-sm flex w-[100px] items-center justify-center h-8
+                       bg-[#FFD814] border border-[#FCD200] 
+                       hover:bg-[#F7CA00] hover:border-[#F2C200] hover:cursor-pointer
+                        active:bg-[#F0B800] active:border-[#008296] active:shadow-continueButton"
+                       >
+                         <button className="hover:cursor-pointer"  onClick={() => {
+                             handleSignOut();
+                           }}>
+                           Sign Out
+                         </button>
+                       </div>
+                     </div>
+                   </>
+                 ) : (
+                   <>
+                     <Link href={"/signin"}>
+                       <div className="text-xs xl:text-sm">
+                         Hello, sign in
+                       </div>
+                     </Link>
+                     <div className="bg-white border border-[#cbc3c3]  rounded-lg  w-[230px] mt-4 -ml-12 text-black flex flex-col justify-center items-center">
+                       <div
+                         className="rounded-lg my-4 mb-3 text-sm flex w-[100px] items-center justify-center h-8
+                       bg-[#FFD814] border border-[#FCD200] 
+                       hover:bg-[#F7CA00] hover:border-[#F2C200] hover:cursor-pointer
+                        active:bg-[#F0B800] active:border-[#008296] active:shadow-continueButton"
+                       >
+                         <Link className="hover:cursor-pointer" href={"/signin"}>
+                           Sign in
+                         </Link>
+                       </div>
+                     </div>
+                   </>
+                 )}
+               </div>
+             </div>
+            {/* end */}
           </div>
         </div>
       </div>
@@ -120,92 +173,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-{/* start */}
-            // <div
-            //   className={`px-2 mt-4 h-11 w-[150px] overflow-hidden border border-[#131921] hover:border-white hover:overflow-visible ${
-            //     language === "ar" ? "flex-row-reverse" : "flex-row"
-            //   }`}
-            // >
-            //   <div className={`z-10 relative top-0 duration-1000 `}>
-            //     {nameSecurity ? (
-            //       <div
-            //         className={`${
-            //           language === "ar" ? "flex-row-reverse" : "flex-row"
-            //         }`}
-            //       >
-            //         <div className="text-xs xl:text-sm">
-            //           {t("Hello")} <span>{nameSecurity}</span>
-            //         </div>
-            //         <div className="text-xs xl:text-base font-bold">
-            //           {t("Accounts & Lists")}
-            //         </div>
-            //         <div className="bg-white border border-[#cbc3c3] rounded-lg  w-[200px] mt-4 -ml-8 text-black flex flex-col ">
-            //           <div className="flex flex-col mb-4 mx-5">
-            //             <p className="font-[500] mt-3 mb-2">
-            //               {t("Your Account")}
-            //             </p>
-            //             <span className="mb-1">
-            //               <Link
-            //                 to={"/account"}
-            //                 className=" hover:cursor-pointer hover:text-[#C7511F] hover:underline"
-            //               >
-            //                 {t("Account")}
-            //               </Link>
-            //             </span>
-            //             <span className="mb-2">
-            //               <Link
-            //                 to={"/orders"}
-            //                 className=" hover:cursor-pointer hover:text-[#C7511F] hover:underline"
-            //               >
-            //                 {t("Orders")}
-            //               </Link>
-            //             </span>
-            //             <button
-            //               onClick={() => {
-            //                 handleSignOut();
-            //               }}
-            //               className=" hover:cursor-pointer hover:text-[#C7511F] hover:underline"
-            //             >
-            //               {t("Sign Out")}
-            //             </button>
-            //           </div>
-            //         </div>
-            //       </div>
-            //     ) : (
-            //       <>
-            //         <Link to={"/login"}>
-            //           <div className="text-xs xl:text-sm">
-            //             {t("Hello, sign in")}
-            //           </div>
-            //           <div className="text-xs xl:text-base font-bold">
-            //             {t("Accounts & Lists")}
-            //           </div>
-            //         </Link>
-            //         <div className="bg-white border border-[#cbc3c3]  rounded-lg  w-[230px] mt-4 -ml-12 text-black flex flex-col justify-center items-center">
-            //           <div
-            //             className="rounded-lg my-4 mb-3 text-sm flex w-[100px] items-center justify-center h-8
-            //           bg-[#FFD814] border border-[#FCD200] 
-            //           hover:bg-[#F7CA00] hover:border-[#F2C200] hover:cursor-pointer
-            //            active:bg-[#F0B800] active:border-[#008296] active:shadow-continueButton"
-            //           >
-            //             <Link className="hover:cursor-pointer" to={"/login"}>
-            //               {t("Sign in")}
-            //             </Link>
-            //           </div>
-            //           <div>
-            //             <p className="mb-4">
-            //               {t("New customer?")}{" "}
-            //               <Link
-            //                 to={"/register"}
-            //                 className="text-blue-500 hover:text-[#C7511F] hover:underline"
-            //               >
-            //                 {t("Start here.")}
-            //               </Link>
-            //             </p>
-            //           </div>
-            //         </div>
-            //       </>
-            //     )}
-            //   </div>
-            // </div>
-            {/* end */}
