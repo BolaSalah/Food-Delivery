@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { assets } from './../../../assets/assets';
+import { assets } from '../../assets/assets';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,7 +18,7 @@ interface IContact extends IElement {
   link: string;
 }
 
-const contact = () => {
+const Contact = () => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userMessage, setUserMessage] = useState('');
@@ -170,4 +170,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

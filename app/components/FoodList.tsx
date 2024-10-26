@@ -12,7 +12,7 @@ const FoodList = (props: { category: string }) => {
           </div>
           {props.category === 'All' ? (
             <div className='flex flex-wrap justify-center'>
-              {food_list.map((e, index) => (
+              {food_list.map((e:any, index:number) => (
                 <div
                   className='md:w-1/4 sm:w-1/3 w-[200px] px-3 mb-10'
                   key={index}
